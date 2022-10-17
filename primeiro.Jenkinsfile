@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     // Variables
-    enivronment {
+    environment {
         BRANCH = "master"
     }
 
