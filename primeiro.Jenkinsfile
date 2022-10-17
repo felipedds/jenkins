@@ -1,5 +1,12 @@
 pipeline {
     agent any
+
+    // Variables
+    enivronment {
+        BRANCH = "master"
+    }
+
+    // Stages
     stages {
         stage("stage1") {
             steps {
@@ -17,12 +24,15 @@ pipeline {
                 stage("stage2-B") {
                     steps {
                         echo "step2-B"
-                    }
+                    }   
                 }
             }
         }
 
         stage("step3") {
+            when {
+                expression { BRANCH == "feature"}
+            }
             steps {
                 echo "step3"
             }
