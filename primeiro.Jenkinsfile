@@ -1,13 +1,22 @@
-node {
-    stage("step1") {
-        echo "step1 - script 1"
-    }
+pipeline {
+    agent any
+    stages {
+        stage("stage1") {
+            steps {
+                echo "step1"
+            }
+        }
 
-    stage("step2") {
-        echo "step2 - script 2"
-    }
+        stage("stage2") {
+            steps {
+                echo "step2"
+            }
+        }
 
-    stage("step3") {
-        echo "step3 - script 3"
+        stage("step3") {
+            steps {
+                echo "step3"
+            }
+        }
     }
 }
