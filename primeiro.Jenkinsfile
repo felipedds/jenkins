@@ -7,9 +7,18 @@ pipeline {
             }
         }
 
-        stage("stage2") {
-            steps {
-                echo "step2"
+        stage("stage2-Parallel") {
+            parallel {
+                stage("stage2-B") {
+                    steps {
+                        echo "step2-A"
+                    }
+                }
+                stage("stage2-B") {
+                    steps {
+                        echo "step2-B"
+                    }
+                }
             }
         }
 
@@ -18,5 +27,6 @@ pipeline {
                 echo "step3"
             }
         }
+
     }
 }
