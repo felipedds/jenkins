@@ -5,7 +5,7 @@ pipeline {
         stage ("Build image") {
             steps {
                 script { 
-                    dockerapp = docker.build("ubuntu")
+                    dockerapp = docker.build("ubuntu:${env.BUILD_ID}")
                 }
             }
         }
